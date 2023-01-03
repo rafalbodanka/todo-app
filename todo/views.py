@@ -1,21 +1,41 @@
-from django.shortcuts import render
-
-from .forms import Task
+from django.shortcuts import render, redirect
+from .models import Task
+from django.views import View
 
 # Create your views here.
 
-def todo_view(request):
+class Todo(View):
+    def get(self, request):
+        tasks = Task.objects.all()
+        context = {'tasks': tasks}
+        return render(request, 'index.html', context)
 
-    form = Task(request.POST)
+    def post(self, request):
+        task = Task.objects.create(
+            title=request.POST.get('title')
+        )
+        task.save()
+        return redirect('todo')
 
-    if form.is_valid():
-        return 0
+class TaskDetail(View):
+    def get(self, request, pk):
+        task = Task.objects.get(id=pk)
+        context = {'task':task}
+        return render(request, 'task.html', context)
 
-    else:
-        form = Task()
+    def post(self, request, pk):
+        task = Task.objects.get(id=pk)
+        task.title = request.POST.get('title')
+        task.save()
+        return redirect('todo')
 
-    context = {'form': form}
+class TaskDelete(View):
+    def get(self, request, pk):
+        task = Task.objects.get(id=pk)
+        context = {'task':task}
+        return render(request, 'delete.html', context)
 
-    response = render(request, "index.html", context)
-
-    return response
+    def post(self, request, pk):
+        task = Task.objects.get(id=pk)
+        task.delete()
+        return redirect('todo')

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="edit_container">
+    <small>Updated {{task.updated|timesince}} ago</small>
+    <hr>
+
+    <form method="POST" action="{% url 'task' task.id %}">
+        {% csrf_token %}
+        <textarea id="edit_task" name="title" rows="1" cols="20" placeholder="task" wrap="off">{{task.title}}</textarea>
+        <input id="change_btn" type="submit" value="Change">
+    </form>
+
+    <hr>
+    <div id="wrapper">
+        <a href="{% url 'todo' %}">Return</a>
+        <a href="{% url 'delete' task.id %}" id="delete">Delete task</a>
+    </div>
+</div>
+{% endblock %}

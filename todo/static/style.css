@@ -7,8 +7,174 @@
 body {
     font-family: 'Roboto';
     font-size: 20px;
+    position: relative;
 }
 
-.form {
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#main_container {
+    width: 225px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#add_task {
+    font-family: 'Roboto';
+    resize: none;
+}
+
+#form {
+    display: flex;
+    width: 225px;
+}
+
+
+textarea {
+    width:90%;
+    display:inline-block;
+    padding: 2;
+    border: 1px solid;
+    border-right: 0px;
+    height: 22px;
+}
+
+#submit {
+    width: 10%;
+}
+
+#submit_btn {
+    position: relative;
+    display: block;
+    background-color: #1c89ff;
+    border: solid 1px black;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+#submit_btn:hover {
+    background-color: rgb(214, 214, 214);
+    transition: all .1s ease-in-out;
+
+}
+
+.section {
+    text-align: center;
+}
+
+.todo_container {
+    display:flex;
+    flex-direction: column;
+}
+
+#task {
+    position: relative;
+    border: solid 1px;
+    border-radius: 7px;
+    margin: 5px;
+    height: 100px;
+    width: 200px;
+    padding: 5px;
     float: left;
+}
+
+#updated {
+    position: absolute;
+    font-size: 12px;
+    /* padding-top: 60px; */
+    bottom: 5px;
+}
+
+#task_title {
+    float: left;
+    font-size: 16px;
+}
+
+#edit {
+    font-size: 16px;
+    margin-left: 90%;
+    width: 30%;
+}
+
+#edit_container {
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+#edit_task {
+    font-family: 'Roboto';
+    resize: none;
+    float: left;
+    width: 70%;
+}
+
+#change_btn {
+    position: relative;
+    display: block;
+    background-color: #1c89ff;
+    border: solid 1px black;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    height: 22px;
+}
+
+#change_btn:hover {
+    background-color: rgb(214, 214, 214);
+    transition: all .1s ease-in-out;
+
+}
+
+#delete_container {
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#question {
+    right: 10px;
+}
+
+#wrapper {
+    position: relative;
+    font-size: 16px;
+}
+
+#delete {
+    position: absolute;
+    right: 5px;
+}
+
+#delete_btn {
+    position: relative;
+    display: block;
+    background-color: #1c89ff;
+    border: solid 1px black;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cancel_delete {
+    font-size: 14px;
 }
