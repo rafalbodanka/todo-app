@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <title>Todo app</title>
+</head>
+<body>
+    <div id="main_container">
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <div id="form">
+                <textarea id="add_task" name="title" rows="1" cols="20" placeholder="new task" wrap="off"></textarea>
+                <input id="submit_btn" type="submit" value="Add">
+            </div>
+        </form>
+
+        <div class="section">To do</div>
+            <hr>
+            <div class="todo_container">
+                {% for task in tasks %}
+                    <div id="task">
+                        <a id='task_title' href="{% url 'task' task.id %}">{{task.title}}</a>
+                        <div id="edit">...</div>
+                        <div id="updated">Updated {{task.updated|timesince}} ago</div>
+                    </div>
+                {% endfor %}
+            </div>
+        <!-- <div class="section">Done</div> -->
+    </div>
+</body>
+{% endblock %}
