@@ -1,8 +1,9 @@
 # todo-app
 ## simple CRUD django-based web-app with postgresql
 
-How to use:
-Repo is ready almost ready to use.
+How to install:
+
+Repo is almost ready to use.
 
 First of all run:
 
